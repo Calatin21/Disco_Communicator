@@ -6,12 +6,12 @@
             Mensch freund2 = new() { Name = "Homer" };
             Disco disco = new Disco() { Name = "Studio 54"};
             Netz netz = new();
+            disco.Net = netz;
             netz.Konten.Add(new NetzKonto() { Person = stu});
             netz.Konten.Add(new NetzKonto() { Person = freund1});
             netz.Konten.Add(new NetzKonto() { Person = freund2});
-            Kommunikator kommunikator = new() { Net = netz};
-            disco.DiscoEvent += kommunikator.Betreten;
-            disco.DiscoEvent += kommunikator.Verlassen;
+            disco.DiscoEvent += disco.Betreten;
+            disco.DiscoEvent += disco.Verlassen;
             
 
             Console.ForegroundColor = ConsoleColor.Green;
