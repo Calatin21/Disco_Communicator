@@ -6,13 +6,13 @@
         public Netz Net { get; set; }
         public void AddBesucher(Mensch besucher) {
             Besucher.Add(besucher);
-            if (((DiscoBesucher)besucher).Premiumcard) {
+            if (besucher.Premiumcard) {
                 this.DiscoEvent(this, new DiscoEventArgs() { Message = $"Disco {this.Name} Betreten", Sender = besucher, Grund = Ereignis.Betreten });
             }
         }
         public void RemoveBesucher(Mensch besucher) {
             Besucher.Remove(besucher);
-            if (((DiscoBesucher)besucher).Premiumcard) {
+            if (besucher.Premiumcard) {
                 this.DiscoEvent(this, new DiscoEventArgs() { Message = $"Disco {this.Name} Verlassen", Sender = besucher, Grund = Ereignis.Verlassen });
             }
         }

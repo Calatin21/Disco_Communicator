@@ -1,9 +1,9 @@
 ﻿namespace Disco_Communicator {
     internal class Program {
         static void Main(string[] args) {
-            DiscoBesucher stu = new() { Name = "Stu", Premiumcard = true};
-            Mensch freund1 = new() { Name = "Selma" };
-            Mensch freund2 = new() { Name = "Homer" };
+            Mensch stu = new() { Name = "Stu", Premiumcard = true};
+            Mensch freund1 = new() { Name = "Selma", Premiumcard = true };
+            Mensch freund2 = new() { Name = "Homer", Premiumcard = false };
             Disco disco = new Disco() { Name = "Studio 54"};
             Netz netz = new();
             disco.Net = netz;
@@ -27,6 +27,9 @@
             Console.WriteLine("Nachrichten nach Disco verlassen");
             Console.ForegroundColor = ConsoleColor.Gray;
             disco.RemoveBesucher(stu);
+            netz.ZeigeAlleNachrichten();
+            disco.AddBesucher(freund1);
+            disco.AddBesucher(freund2);
             netz.ZeigeAlleNachrichten();
         }
     }
